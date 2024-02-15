@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" th:href="@{/defaults.css}">
+  <title>Customer DB</title>
+</head>
+
+<body>
+  <a th:href="@{/job/search}">Back to Job Search Page</a>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Type</th>
+      <th>Company</th>
+      <th>City</th>
+      <th>Address</th>
+      <th>Skills</th>
+    </tr>
+    <tr th:each="job : ${jobs}">
+      <td th:text="${job.jobTitle}"></td>
+      <td th:text="${job.jobType}"></td>
+      <td th:text="${job.employer.name}"></td>
+      <td th:text="${job.location.city}"></td>
+      <td th:text="${job.location.address}"></td>
+      <td>
+        <ul>
+          <li th:each="skill : ${job.skills}" th:text="${skill}"></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+</body>

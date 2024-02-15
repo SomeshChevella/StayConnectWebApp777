@@ -1,0 +1,12 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" th:href="@{/defaults.css}">
+  <title>Thank You</title>
+</head>
+
+<body>
+  <p th:text="'User Account with email '+ ${account.email} + ' was added successfully'"></p>
+    <table>
+  <a th:text="Login" th:href="@{/login}"></a>
+</body>

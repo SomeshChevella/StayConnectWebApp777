@@ -1,0 +1,22 @@
+
+ tr:hover {background-color: rgb(128, 255, 191);} 
+ 
+ th {
+  background-color: #04AA6D;
+  color: white;
+}
+td {
+  text-align: left;
+}
+
+td {
+  border-left: none;
+  width: 8em;
+  min-width: 8em;
+  max-width: 8em;
+}
+
+p.b {
+  text-align-last: center;
+}
+

@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" th:href="@{/defaults.css}">
+  <title>Profile List</title>
+</head>
+
+<body>
+  <a th:href="@{/home}">Back to Homepage</a>
+  <table>
+    <tr>
+      <th>email</th>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Age</th>
+      <th>City</th>
+      <th>Address</th>
+      <th>Skills</th>
+    </tr>
+    <tr th:each="profile : ${profiles}">
+      <td th:text="${profile.email}"></td>
+      <td th:text="${profile.nameInfo.name}"></td>
+      <td th:text="${profile.gender}"></td>
+      <td th:text="${profile.age}"></td>
+      <td th:text="${profile.location.city}"></td>
+      <td th:text="${profile.location.address}"></td>
+      <td>
+        <ul>
+          <li th:each="skillProficiency : ${profile.skillProficiencies}" th:text="${skillProficiency.skill} + ': ' + ${skillProficiency.proficiency}"></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+</body>

@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title></title>
+</head>
+<body>
+<p th:text="'The following are the details for the Profile:' " />
+<p th:text="'Email: ' + ${account_email}" />
+<p th:text="'Gender: ' + ${gender}" />
+<p th:text="'Age: ' + ${age}" />
+<p th:text="'Skill Summary: ' + ${skills_summary}" />
+<p th:text="'PhoneNum: ' + ${phone_num}" />
+<p th:text="'Location Id: ' + ${location_id}" />
+
+ 	<a href="Home" th:href="@{/home}">Back to Home Page</a>
+
+</body>
+</html>

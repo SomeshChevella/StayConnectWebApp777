@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" th:href="@{/defaults.css}">
+  <title>User Registration</title>
+</head>
+
+<body>
+  <form action="#" th:action="@{/register}" th:object="${account}" method="post">
+    <table>
+    
+	  <tr>
+	    <td>email:</td>
+	    <td><input type="text" th:field="*{email}" /></td>
+	    <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></td>
+	  </tr>
+	  <tr>
+	    <td>Password:</td>
+	    <td><input type="password" th:field="*{password}" /></td>
+	    <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></td>
+	  </tr>
+	  <tr>
+	    <td>Confirm Password:</td>
+	    <td><input type="password" th:field="*{passwordConf}" /></td>
+	    <td th:if="${#fields.hasErrors('passwordConf')}" th:errors="*{passwordConf}"></td>
+	  </tr>
+	  <tr>
+	    <td>
+	      <ul>
+	        <li th:each="role : ${roles}">
+	          <input type="radio" th:field="*{role}" th:value="${role}" />
+	          <label th:for="${#ids.prev('role')}" th:text="${role}"></label>
+	        </li>
+	      </ul>
+	    </td>
+	    <td th:if="${#fields.hasErrors('role')}" th:errors="*{role}"></td>
+	  </tr>
+	  <tr>
+	    <td><button type="submit">Submit</button></td>
+	  </tr>
+	  
+    </table>
+  </form>
+</body>
+</html>

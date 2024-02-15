@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" th:href="@{/defaults.css}">
+  <title>Customer DB</title>
+</head>
+
+<body>
+  <a th:href="@{/home}">Back to Homepage</a>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>email</th>
+      <th>Active</th>
+      <th>Role</th>
+    </tr>
+    <tr>
+      <td th:text="${account.id}"></td>
+      <td th:text="${account.email}"></td>
+      <td th:text="${account.active}"></td>
+      <td th:text="${account.roles[0]}"></td>
+    </tr>
+  </table>
+</body>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" th:href="@{/defaults.css}">
+  <title>User Registration</title>
+</head>
+
+<body>
+  <form action="#" th:action="@{/register/verify}" th:object="${code}" method="post">
+    <tr>
+	  <td>code:</td>
+	  <td><input type="text" th:field="*{code}" /></td>
+	  <td th:if="${#fields.hasErrors('code')}" th:errors="*{code}"></td>
+	</tr>
+	<tr>
+	    <td><button type="submit">Submit</button></td>
+	</tr>
+  </form>
+  <form action="#" th:action="@{/code/new}" method="post">
+    <button type="submit">Request New Code</button>
+  </form>
+  
+</body>

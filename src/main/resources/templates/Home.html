@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" th:href="@{/defaults.css}">
+  <title>Home</title>
+</head>
+
+<body>
+  <h2>StayConnected Home</h2>
+  <a th:href="@{/profile}">Create a Profile</a><br>
+  <a th:href="@{/update/profile}">Update a Profile</a><br>
+  <a th:href="@{/profile/search}">Search for a Profile</a><br>
+  <a th:href="@{/profile/list}">View All Profiles</a><br>
+  <a th:href="@{/postjob}">Post a Job</a><br>
+  <a th:href="@{/job/search}">Search for a Job</a><br>
+  <a th:href="@{/job/list}">View All Jobs</a><br>
+  <a sec:authorize="hasRole('FACULTY')" th:href="@{/account/list}">Manage Account Permissions</a><br>
+  <form th:action="@{/logout}" method="post">
+    <input type="submit" value="Logout"/>
+  </form>
+</body>

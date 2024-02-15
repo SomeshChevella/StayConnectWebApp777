@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" th:href="@{/defaults.css}">
+  <title>User Registration</title>
+</head>
+
+<body>
+  <form action="#" th:action="@{/account/modify}" th:object="${account}" method="post">
+    <table>
+    
+	  <tr>
+	    <td>email:</td>
+	    <td th:text="${account.email}"></td>
+	  </tr>
+	  <tr>
+	    <td>Active:</td>
+	    <td>
+	      <ul>
+	        <li th:each="activity : ${possibleBools}">
+	          <input type="radio" th:field="*{active}" th:value="${activity}"/>
+	          <label th:for="${#ids.prev('active')}" th:text="${activity}"></label>
+	        </li>
+	      </ul>
+	    </td>
+	    <td th:if="${#fields.hasErrors('active')}" th:errors="*{active}"></td>
+	  </tr>
+	  <tr>
+	    <td>
+	      <ul>
+	        <li th:each="possibleRole : ${possibleRoles}">
+	          <input type="radio" th:field="*{role}" th:value="${possibleRole}" />
+	          <label th:for="${#ids.prev('role')}" th:text="${possibleRole}"></label>
+	        </li>
+	      </ul>
+	    </td>
+	    <td th:if="${#fields.hasErrors('role')}" th:errors="*{role}"></td>
+	  </tr>
+	  <tr>
+	    <td><button type="submit">Submit</button></td>
+	  </tr>
+	  
+    </table>
+  </form>
+</body>
+</html>

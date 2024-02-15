@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title></title>
+</head>
+<body>
+
+<form action = "#" th:action = "@{/jobInfo}" th:object = "${webJobPost}" method = "post">
+	<table>
+	
+		<tr>
+			<td>jobTitle: </td>
+			<td><input type="text" th:field="*{title}" name="title"/></td>
+			<td><th:if="${#fields.hasErrors('title')}" th:errors="*{title}">
+			
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<ul>
+  					<li th:each="ty : ${allGenders}"> 
+					<input type="radio" th:field="*{gender}" th:value="${ty}" />
+		    		<label th:for="${#ids.prev('gender')}" th:text="${ty}">Wireframe</label>
+		    		<td><th:if="${#fields.hasErrors('gender')}" th:errors="*{type}">    		
+					</li>
+				</ul>
+			</td>	
+		</tr>
+
+		<tr>
+			<td>Age: </td>
+			<td><input type="text" th:field="*{age}" name="age"/></td>
+						<td><th:if="${#fields.hasErrors('age')}" th:errors="*{age}">
+
+		</tr>
+			
+		<tr>
+			<td>Email: </td>
+			<td><input type="text" th:field="*{email}" name="email"/></td>
+			<td><th:if="${#fields.hasErrors('email')}" th:errors="*{email}" >
+			
+		</tr>
+		
+		<tr>
+			<td>Phone Number: </td>
+			<td><input type="text" th:field="*{phoneNum}" name="phoneNum"/></td>
+			<td><th:if="${#fields.hasErrors('phoneNum')}" th:errors="*{phoneNum}" >
+			
+		</tr>
+		
+		<tr>
+			<td>Location: </td>
+			<td><input type="text" field="*{location}" name="location"/></td>
+			<td><th:if="${#fields.hasErrors('location')}" th:errors="*{location}">
+		
+		</tr>
+		
+		
+		<tr>
+			<td><button type="submit">Submit</button> </td>
+		</tr>
+						
+	</table>
+</form>
+
+</body>
+</html>
+
+
+

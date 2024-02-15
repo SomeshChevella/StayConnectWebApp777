@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title></title>
+</head>
+<body>
+
+<form action = "#" th:action = "@{/profileInfo}" th:object = "${webProfile}" method = "post">
+	<table>
+	
+		<tr>
+			<td>Name: </td>
+			<td><input type="text" th:field="*{name}" name="name"/></td>
+			<td><th:if="${#fields.hasErrors('name')}" th:errors="*{name}">
+			
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<ul>
+  					<li th:each="ty : ${allGender}"> 
+					<input type="radio" th:field="*{gender}" th:value="${ty}" />
+		    		<label th:for="${#ids.prev('gender')}" th:text="${ty}">Wireframe</label>
+		    		<td><th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}">    		
+					</li>
+				</ul>
+			</td>	
+		</tr>
+
+		<tr>
+			<td>Age: </td>
+			<td><input type="text" th:field="*{age}" name="age"/></td>
+						<td><th:if="${#fields.hasErrors('age')}" th:errors="*{age}">
+
+		</tr>
+		
+		<tr>
+			<td>Phone Number: </td>
+			<td><input type="text" th:field="*{phoneNum}" name="phoneNum"/></td>
+			<td><th:if="${#fields.hasErrors('phoneNum')}" th:errors="*{phoneNum}" >
+			
+		</tr>
+		
+			<tr>
+			<td>state: </td>
+			<td><input type="text" field="*{state}" name="state"/></td>
+			<td><th:if="${#fields.hasErrors('state')}" th:errors="*{state}">
+		</tr>
+
+		<tr>
+			<td>city: </td>
+			<td><input type="text" field="*{city}" name="city"/></td>
+			<td><th:if="${#fields.hasErrors('city')}" th:errors="*{city}">
+		
+		</tr>
+		
+		<tr>
+			<td>address: </td>
+			<td><input type="text" field="*{address}" name="address"/></td>
+			<td><th:if="${#fields.hasErrors('address')}" th:errors="*{address}">
+		
+		</tr>
+		
+		<tr>
+			<td>zip: </td>
+			<td><input type="text" field="*{zipCode}" name="zipCode"/></td>
+			<td><th:if="${#fields.hasErrors('zipCode')}" th:errors="*{zipCode}">
+		
+		</tr>
+		
+		<tr>
+			<td>Country: </td>
+			<td><input type="text" field="*{country}" name="country"/></td>
+			<td><th:if="${#fields.hasErrors('country')}" th:errors="*{country}">
+		
+		</tr>
+		
+		
+		<tr>
+			<td>Skills: </td>
+			<td><input type="text" field="*{skills}" name="skills"/></td>
+			<td><th:if="${#fields.hasErrors('skills')}" th:errors="*{skills}">
+			
+		</tr>		
+				
+		
+		<tr>
+			<td>Skill Summary: </td>
+			<td><input type="text" field="*{skillSummary}" name="skillSummary"/></td>
+			<td><th:if="${#fields.hasErrors('skillSummary')}" th:errors="*{skillSummary}">
+			
+		</tr>	
+		
+		
+		
+		<tr>
+			<td><button type="submit">Submit</button> </td>
+		</tr>
+		
+		<a href="Home" th:href="@{/home}">Back to Home Page</a>
+						
+	</table>
+</form>
+
+</body>
+</html>
+
+
+

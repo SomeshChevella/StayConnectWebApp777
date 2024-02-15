@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" th:href="@{/defaults.css}">
+  <title>Search for Jobs</title>
+</head>
+
+<body>
+  <a th:href="@{/home}">Back to Home Page</a>
+  <form action="#" th:action="@{/profile/search}" th:object="${searchData}" method="post">
+    <tr>
+	  <td><input type="text" th:field="*{query}" /></td>
+	  <td th:if="${#fields.hasErrors('query')}" th:errors="*{query}"></td>
+    </tr>
+    <tr>
+  	  <td>
+  	    <ul>
+  	      <li th:each="criterion : ${possibleCriteria}">
+  	        <input type="radio" th:field="*{criteria}" th:value="${criterion}"/>
+  	        <label th:for="${#ids.prev('criteria')}" th:text="${criterion}"></label>
+  	      </li>
+  	    </ul>
+  	  </td>
+  	<td th:if="${#fields.hasErrors('criteria')}" th:errors="*{criteria}"></td>
+  </tr>
+    <tr>
+      <button type="submit">Submit</button>
+    </tr>
+  </form>
+</body>
